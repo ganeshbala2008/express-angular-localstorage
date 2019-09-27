@@ -1,0 +1,7 @@
+.layout{
+	margin: 65px;
+}
+button.add-button{
+	float: right;
+	font-size: 1.5em;
+}

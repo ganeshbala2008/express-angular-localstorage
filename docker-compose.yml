@@ -1,0 +1,36 @@
+version: '3.5' # specify docker-compose version
+
+# Define the services/containers to be ru
+services:
+  angular:
+    image: "angular-client:0.0.1"
+    container_name: angular-client
+    tty: true
+    stdin_open: true
+    networks:
+      app_net:
+        ipv4_address: 172.16.238.05
+    volumes:
+      - "./angular-client:/opt/code"
+
+  express: #name of the second service
+    image: "express-server:0.0.1"
+    container_name: express-server
+    tty: true
+    stdin_open: true
+    networks:
+      app_net:
+        ipv4_address: 172.16.238.06
+    volumes:
+      - "./express-server:/usr/src/app"
+ # specify the directory of the Dockerfile
+    ports:
+      - "3000:3000"
+
+networks:
+   app_net:
+     driver: bridge
+     ipam:
+       driver: default
+       config:
+          - subnet: 172.16.238.0/24

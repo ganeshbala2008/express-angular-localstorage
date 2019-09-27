@@ -1,0 +1,27 @@
+<form name="userForm" [formGroup]="userForm" (ngSubmit)="onSubmit(userForm.value)">
+
+   <mat-form-field appearance = "standard">
+      <input  type="number" matInput placeholder = "User id" name="id" formControlName="id">
+   </mat-form-field>
+    <div *ngIf="isSubmitted && userFormControls.id.errors" class="help-block">
+      <div *ngIf="userFormControls.id.errors.required">User id is required</div>
+    </div>
+<br>
+
+   <mat-form-field appearance = "standard">
+      <input matInput placeholder = "name" name="name" formControlName="name">
+   </mat-form-field>
+    <div *ngIf="isSubmitted && userFormControls.name.errors" class="help-block">
+      <div *ngIf="userFormControls.name.errors.required">Name is required</div>
+    </div>
+
+<br>
+   <mat-form-field appearance = "standard">
+      <input type="number" matInput placeholder = "Second for record expriy" name="ttl" formControlName="ttl">
+   </mat-form-field>
+    <div *ngIf="isSubmitted && userFormControls.ttl.errors" class="help-block">
+      <div *ngIf="userFormControls.ttl.errors.required">Record expiry is required</div>
+    </div>
+<br>
+   <button mat-raised-button type="submit" color="primary">Save</button>
+</form>

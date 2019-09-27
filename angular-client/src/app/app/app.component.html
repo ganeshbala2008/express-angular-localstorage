@@ -1,0 +1,7 @@
+<p class="app-name">Data store</p>
+<p (notify)="sayUser($event)">{{notifyMsg}}</p>
+<router-outlet></router-outlet>
+
+<div class="wrapper">
+	<button class="button"><a [routerLink]="['/']">Back to list users</a></button>
+</div>

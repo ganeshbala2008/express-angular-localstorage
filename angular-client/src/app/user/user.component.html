@@ -1,0 +1,23 @@
+<div class='layout'>
+<button class="add-button"><a routerLink='/user/add'>Add</a></button>
+<mat-table [dataSource]="data" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.id }} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Action">
+    <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+    <button  [routerLink]="['/user-detail/',element.id]">View user</button>
+    <button  (click)="deleteUser(element.id)">Delete user</button></mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+</div>
