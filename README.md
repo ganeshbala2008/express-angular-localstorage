@@ -32,3 +32,7 @@ steps:
  
 Angular server - 172.16.238.05
 Express server - 172.16.238.06
+
+For test cases,
+Run npm run test
+

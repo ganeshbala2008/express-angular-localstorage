@@ -53,7 +53,7 @@ export class Controller {
     }
    storageService.delete(req.params.id).then(r =>
       res
-        .status(200)
+        .status(200).end()
     );
   }
 }
